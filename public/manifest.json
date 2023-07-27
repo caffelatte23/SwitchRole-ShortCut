@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "SwitchRole ShortCut",
+  "version": "1.0",
+  "description": "AWSのSwitchRoleのショートカットを記録する",
+  "permissions": ["activeTab", "scripting", "tabs", "storage"],
+  "action": {
+    "default_popup": "index.html"
+  }
+}
