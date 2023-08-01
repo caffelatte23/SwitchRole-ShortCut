@@ -19,4 +19,10 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'off',
     'unused-imports/no-unused-imports': 'error',
   },
+  settings: {
+    tailwindcss: {
+      groupByResponsive: true,
+      whitelist: [],
+    },
+  },
 };
