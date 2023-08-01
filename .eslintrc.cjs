@@ -7,31 +7,16 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'prettier',
     'plugin:tailwindcss/recommended',
-    'plugin:import/recommended',
-    'plugin:import/typescript',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
+  plugins: ['react-refresh', 'tailwindcss', 'import', 'unused-imports'],
   rules: {
-    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-    '@typescript-eslint/no-non-null-assertion': 'off',
-    'import/first': 'error',
-    'import/newline-after-import': 'error',
-    'import/no-duplicates': 'error',
-    'import/order': 'error',
-  },
-  ignorePatterns: ['vite.config.ts', 'tailwind.config.js', '.eslintrc.cjs'],
-  settings: {
-    tailwindcss: {
-      groupByResponsive: true,
-      whitelist: [],
-    },
-    'import/resolver': {
-      typescript: {
-        project: './',
-      },
-      node: true,
-    },
+    'react-refresh/only-export-components': [
+      'warn',
+      { allowConstantExport: true },
+    ],
+    '@typescript-eslint/no-unused-vars': 'off',
+    'unused-imports/no-unused-imports': 'error',
   },
 };
