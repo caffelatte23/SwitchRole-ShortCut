@@ -14,7 +14,7 @@ const RoleMenu = () => {
     <div className="box-border flex w-[350px] flex-col gap-4 rounded p-4">
       <div className="flex justify-end">
         <Link to={'/edit'}>
-          <AddIcon className="h-6 w-6 rounded-full p-1 hover:bg-slate-300" />
+          <AddIcon className="size-6 rounded-full p-1 hover:bg-slate-300" />
         </Link>
       </div>
       <RoleList />
@@ -92,13 +92,13 @@ const RoleItem: React.FC<{ role: Role; onDelete?: (role: Role) => void }> = ({
           className="rounded-full p-1 hover:bg-slate-200"
           onClick={() => navigate('/edit', { state: { role } })}
         >
-          <EditIcon className="h-4 w-4 text-slate-400" />
+          <EditIcon className="size-4 text-slate-400" />
         </button>
         <button
           className="ml-1 rounded-full p-1 hover:bg-red-200"
           onClick={() => onDelete?.(role)}
         >
-          <TrashIcon className="h-4 w-4 text-red-400" />
+          <TrashIcon className="size-4 text-red-400" />
         </button>
       </div>
     </li>

@@ -64,7 +64,7 @@ const EditMenu = () => {
     <div className="box-border flex h-full w-[350px] flex-col gap-4 rounded p-4">
       <div className="flex justify-between">
         <Link to={'/'}>
-          <BackIcon className="h-6 w-6 rounded-full p-1 hover:bg-slate-300" />
+          <BackIcon className="size-6 rounded-full p-1 hover:bg-slate-300" />
         </Link>
         <input type="submit" value={'Save'} onClick={onSubmit} />
       </div>

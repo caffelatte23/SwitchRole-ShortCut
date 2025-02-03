@@ -1,9 +1,9 @@
-import * as Chrome from '@/lib/chrome';
-import EditMenu from '@/pages/edit';
-import RoleMenu from '@/pages/menu';
-import { useEffect, useState } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
-import NotAws from './pages/not-aws';
+import * as Chrome from "@/lib/chrome";
+import EditMenu from "@/pages/edit";
+import RoleMenu from "@/pages/menu";
+import { useEffect, useState } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import NotAws from "./pages/not-aws";
 
 function App() {
   const navigate = useNavigate();
@@ -13,9 +13,9 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const isAws = current?.url?.includes('console.aws.amazon.com');
-    navigate(isAws ? '/' : '/not-aws');
-  }, [current]);
+    const isAws = current?.url?.includes("console.aws.amazon.com");
+    navigate(isAws ? "/" : "/not-aws");
+  }, [current, navigate]);
 
   return (
     <Routes>

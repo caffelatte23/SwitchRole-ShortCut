@@ -10,18 +10,17 @@ var chrome;
 const setupMessageListener = (metaASE) => {
   if (!metaASE) return;
 
-  let actionHost = metaASE.getAttribute('content');
-  // eslint-disable-next-line no-undef
+  let actionHost = metaASE.getAttribute("content");
   chrome.runtime.onMessage.addListener(function (msg) {
     const { data, action } = msg;
     const { actionSubDomain } = data;
 
-    if (actionSubDomain && actionHost === 'signin.aws.amazon.com') {
+    if (actionSubDomain && actionHost === "signin.aws.amazon.com") {
       actionHost = `${actionSubDomain}.${actionHost}`;
     }
 
     switch (action) {
-      case 'switch':
+      case "switch":
         onSwitchMessage(actionHost, data);
         break;
       default:
@@ -31,10 +30,10 @@ const setupMessageListener = (metaASE) => {
 };
 
 const appendAESR = () => {
-  const form = document.createElement('form');
-  form.id = 'SR_form';
-  form.method = 'POST';
-  form.target = '_top';
+  const form = document.createElement("form");
+  form.id = "SR_form";
+  form.method = "POST";
+  form.target = "_top";
 
   form.innerHTML = `
   <input type="hidden" name="mfaNeeded" value="0">
@@ -56,8 +55,8 @@ const appendAESR = () => {
  * @returns {boolean}
  */
 const onSwitchMessage = (actionHost, data) => {
-  const form = document.getElementById('SR_form');
-  form.setAttribute('action', `https://${actionHost}/switchrole`);
+  const form = document.getElementById("SR_form");
+  form.setAttribute("action", `https://${actionHost}/switchrole`);
 
   form.account.value = data.account;
   form.color.value = data.color;
@@ -73,18 +72,18 @@ const onSwitchMessage = (actionHost, data) => {
  * @returns {boolean}
  */
 const loadAccessScripts = () => {
-  const id = 'sr_attach';
+  const id = "sr_attach";
   if (document.getElementById(id)) return false;
 
-  const script = document.createElement('script');
-  script.src = chrome.runtime.getURL('/attach.js');
+  const script = document.createElement("script");
+  script.src = chrome.runtime.getURL("/attach.js");
   script.id = id;
   document.body.appendChild(script);
   return true;
 };
 
 if (document.body) {
-  const metaASE = document.getElementById('awsc-signin-endpoint');
+  const metaASE = document.getElementById("awsc-signin-endpoint");
   if (metaASE) {
     appendAESR();
     setupMessageListener(metaASE);
